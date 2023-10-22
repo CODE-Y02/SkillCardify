@@ -1,9 +1,12 @@
-import express from "express";
-import dotenv from "dotenv";
-import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "./swagger.js";
-import { connect } from "./db/dbconfig.js";
+const express = require("express");
+const dotenv = require("dotenv");
 dotenv.config();
+
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swagger.js");
+const connect = require("./db");
+
+const usersRoute = require("./routes/user.js");
 
 const app = express();
 
@@ -11,11 +14,7 @@ app.use(express.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-/**
- * @tag users
- * GET /users
- */
-app.use("/users");
+app.use("/users", usersRoute);
 
 app.use("/", (req, res) => {
   res.status(404).json({ success: false, message: "Page Not Found " });
