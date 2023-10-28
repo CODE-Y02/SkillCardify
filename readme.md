@@ -17,3 +17,6 @@ Deadlines for development .
   > features
    * yet to discuss 
   > Release in new year 2024.
+
+
+![image](https://github.com/CODE-Y02/SkillCardify/assets/93047357/420a7d01-7161-4d0b-bd0f-a4e6d8d14774)
